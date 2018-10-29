@@ -1,48 +1,63 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{% block content %}
+<html>
 
-<form action="/add" method="post">
-    <!-- Username -->
-    {% if Username == None %}
-    <label>Username</label><input type="text" name="Username" value=""/>
-    {% else %}
-    <label>Username</label><input type="text" name="Username" value="{{ Username }}"/>
-    {% endif %}
+<head>
+    <title>User Sign Up</title>
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
+</head>
 
-    {% if Username_error  %}
+<body>
+
+    <h1><a href="/">User Sign Up</a></h1>
+
+    <form action="/add" method="post">
+        <!-- Username -->
+        {% if Username == None %}
+        <label>Username</label><input type="text" name="Username" value="" />
+        {% else %}
+        <label>Username</label><input type="text" name="Username" value="{{ Username }}" />
+        {% endif %}
+
+        {% if Username_error %}
         <label class='error'>{{ Username_error }}</label>
-    {% endif %} 
-    <br> 
-    <!-- End Username -->
+        {% endif %}
+        <br>
+        <!-- End Username -->
 
-    <!-- Password -->
-    <label>Password</label><input type="password" name="Password"/>
-    {% if Password_error %}
+        <!-- Password -->
+        <label>Password</label><input type="password" name="Password" />
+        {% if Password_error %}
         <label class='error'>{{ Password_error }}</label>
-    {% endif %} 
-    <br>
-    <!-- End Password -->
+        {% endif %}
+        <br>
+        <!-- End Password -->
 
-    <!-- Verify Password -->
-    <label>Verify Password</label><input type="password" name="Verify_Password"/>
-    <br>
-    <!-- End Verify Password -->
+        <!-- Verify Password -->
+        <label>Verify Password</label><input type="password" name="Verify_Password" />
+        <br>
+        <!-- End Verify Password -->
 
-    <!-- Email -->
-    {% if Email == None %}
-    <label>Email</label><input type="text" name="Email" value=""/>
-    {% else %}
-    <label>Email</label><input type="text" name="Email" value="{{ Email }}"/>
-    {% endif %}
+        <!-- Email -->
+        {% if Email == None %}
+        <label>Email</label><input type="text" name="Email" value="" />
+        {% else %}
+        <label>Email</label><input type="text" name="Email" value="{{ Email }}" />
+        {% endif %}
 
-    {% if Email_error %}
+        {% if Email_error %}
         <label class='error'>{{ Email_error }}</label>
-    {% endif %} 
-    <br>
-    <!-- End Email -->
+        {% endif %}
+        <br>
+        <!-- End Email -->
 
-    <input type="submit" value="Press to Sign Up!"/>
-</form>
+        <input type="submit" value="Press to Sign Up!" />
+    </form>
 
-{% endblock %}
+</body>
+
+</html>
